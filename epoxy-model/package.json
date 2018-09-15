@@ -1,0 +1,40 @@
+{
+  "name": "epoxy-model",
+  "version": "1.0.0",
+  "description": "Epoxy model generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint --print-config . | eslint-config-prettier-check"
+  },
+  "bin": {
+    "epoxy-model": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talenguyen/epoxy-model.git"
+  },
+  "keywords": [
+    "collection",
+    "android",
+    "development",
+    "epoxy"
+  ],
+  "author": "Giang Nguyen <giangnguyen.tale@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/talenguyen/epoxy-model/issues"
+  },
+  "homepage": "https://github.com/talenguyen/epoxy-model#readme",
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "prettier": "1.14.2"
+  },
+  "dependencies": {}
+}

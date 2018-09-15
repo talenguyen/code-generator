@@ -1,0 +1,28 @@
+package vn.tngs.android.vntalk.base.models
+
+import android.widget.Space
+import androidx.core.content.dip
+import com.airbnb.epoxy.EpoxyAttribute
+import com.airbnb.epoxy.EpoxyModelClass
+import com.airbnb.epoxy.EpoxyModelWithHolder
+import vn.tngs.android.vntalk.base.R
+import vn.tngs.android.vntalk.base.R2
+import vn.tngs.android.vntalk.base.models.SpaceModel.Holder
+
+@EpoxyModelClass(layout = R2.layout.holder_space)
+abstract class SpaceModel : EpoxyModelWithHolder<Holder>() {
+
+  @EpoxyAttribute
+  var size: Int = 0
+
+  override fun bind(holder: Holder) {
+    super.bind(holder)
+    val dipSize = holder.space.context.dip(size)
+    holder.space.layoutParams.width = dipSize
+    holder.space.layoutParams.height = dipSize
+  }
+
+  class Holder : KotlinEpoxyHolder() {
+    val space by bind<Space>(R.id.space)
+  }
+}
