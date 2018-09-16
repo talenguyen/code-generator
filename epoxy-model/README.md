@@ -1,60 +1,68 @@
-# Tiki-ViewHolder-Maker
+# epoxy-model
 
-CLI tools to make ViewHolderDelegate for [collection](https://github.com/talenguyen/AndroidDevelopment/tree/master/collection)
+Epoxy model generator
 
 ## Install
 
 ```shell
-$ npm i tiki-viewholder-maker
+$ npm i epoxy-model
 ```
 
 ## Usage
 
 ```shell
-$ tiki-viewholder-maker <layout.xml> <name> <output>
+$ epoxy-model <layout.xml> <name> <output>
 ```
 
 Example
 
+Given layout named `holder_message.xml` with content as following:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/messageTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="8dp"
+    android:textAppearance="@style/Body1">
+
+</TextView>
+```
+
+Execute
 ```shell
-$ tiki-viewholder-maker ./src/main/res/layout/item_todo.xml Todo ./src/main/java/vn/tiki/android/example/viewholders
+$ epoxy-model ./src/main/res/layout/holder_message.xml Message ./src/main/java/vn/tiki/android/app/view
 ```
 
-Will generate `TodoViewHolderDelegate.kt` as following
-
+Will generate `TodoModel.kt` with content  as following:
 ```kotlin
-package vn.tiki.android.example.viewholders
+package vn.tiki.android.app.view
 
-import vn.tiki.android.collection.ListModel
-import vn.tiki.android.collection.ViewHolderDelegate
+import com.airbnb.epoxy.EpoxyAttribute
+import com.airbnb.epoxy.EpoxyModelClass
+import com.airbnb.epoxy.EpoxyModelWithHolder
+import vn.tiki.android.app.view.MessageModel.Holder
 
-object TodoModel : ListModel {
+@EpoxyModelClass(layout = R.layout.holder_message)
+abstract class MessageModel : EpoxyModelWithHolder<Holder>() {
 
-  val key_ = TodoModel::class.java.canonicalName
+  override fun bind(holder: Holder) {
+    super.bind(holder)
+    TODO("bind you model")
+  }
+
   
-  override fun getKey(): String = key_
-
-  override fun <T : ListModel> getViewHolderDelegateFactory(): () -> ViewHolderDelegate<T> {
-    return {
-      @Suppress("UNCHECKED_CAST")
-      TodoViewHolderDelegate() as ViewHolderDelegate<ListModel>
-    }
-  }
-}
-
-class TodoViewHolderDelegate : BaseViewHolderDelegate<TodoModel>() {
-
-  override fun layout(): Int = R.layout.item_todo
-
-  override fun bind(model: TodoModel) {
-    super.bind(model)
-    TODO("bind model to your view")
+  class Holder : KotlinEpoxyHolder() {
+    val messageTextView by bind<TextView>(R.id.messageTextView)
   }
 
-  override fun unbind() {
-    super.unbind()
-    TODO("release resources")
-  }
-}
+}  
 
-```
+## Author
+- Giang Nguyen <giangnguyen.tale@gmail.com> ([twitter](https://twitter.com/Tale_Nguyen))
+
+## License
+
+[MIT](LICENSE)
+
