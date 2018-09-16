@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:foreground="?attr/selectableItemBackground">
+
+  <ImageView
+      android:id="@+id/ivAvatar"
+      android:layout_width="@dimen/conversation_avatar_size"
+      android:layout_height="@dimen/conversation_avatar_size"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:contentDescription="@null"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/ic_placeholder" />
+
+  <TextView
+      android:id="@+id/tvSenders"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="8dp"
+      android:layout_marginStart="16dp"
+      android:maxLines="1"
+      android:textAppearance="@style/Body1"
+      app:layout_constraintBottom_toTopOf="@+id/tvMessage"
+      app:layout_constraintEnd_toStartOf="@+id/tvSentAt"
+      app:layout_constraintStart_toEndOf="@id/ivAvatar"
+      app:layout_constraintTop_toTopOf="@+id/ivAvatar"
+      app:layout_constraintVertical_chainStyle="packed"
+      tools:text="Media Box" />
+
+  <TextView
+      android:id="@+id/tvMessage"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="8dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="4dp"
+      android:maxLines="1"
+      android:textAppearance="@style/Caption1"
+      app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
+      app:layout_constraintEnd_toStartOf="@+id/tvSentAt"
+      app:layout_constraintStart_toEndOf="@id/ivAvatar"
+      app:layout_constraintTop_toBottomOf="@+id/tvSenders"
+      tools:text="Báo mới: Thượng đỉnh Mỹ-Triều diễn ra lúc 9h sáng 12/6 tai" />
+
+  <TextView
+      android:id="@+id/tvSentAt"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="16dp"
+      android:textAppearance="@style/Caption2"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/ivAvatar"
+      tools:text="1 giờ" />
+
+  <TextView
+      android:id="@+id/tvBadge"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@drawable/badge_bg"
+      android:gravity="center"
+      android:paddingEnd="6dp"
+      android:paddingStart="6dp"
+      android:text="N"
+      android:textAppearance="@style/Caption1"
+      android:textColor="@color/white"
+      app:layout_constraintEnd_toEndOf="@+id/tvSentAt"
+      app:layout_constraintTop_toBottomOf="@+id/tvSenders"
+      tools:ignore="HardcodedText"
+      tools:text="N" />
+
+  <View
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:layout_marginTop="16dp"
+      android:background="@color/grey"
+      app:layout_constraintStart_toStartOf="@+id/tvSenders"
+      app:layout_constraintTop_toBottomOf="@+id/ivAvatar" />
+
+</android.support.constraint.ConstraintLayout>
