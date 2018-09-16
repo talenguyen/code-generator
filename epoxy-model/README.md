@@ -58,9 +58,12 @@ abstract class MessageModel : EpoxyModelWithHolder<Holder>() {
   }
 
 }  
+```
 
 ## Author
 - Giang Nguyen <giangnguyen.tale@gmail.com> ([twitter](https://twitter.com/Tale_Nguyen))
+
+Enjoy your work and [say thanks](https://saythanks.io/to/talenguyen) :)
 
 ## License
 
