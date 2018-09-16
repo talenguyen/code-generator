@@ -24,7 +24,7 @@ abstract class ${namePattern}Model : EpoxyModelWithHolder<Holder>() {
   }
 
   ${holderPattern}
-  
+}  
 `;
 
 class Model {

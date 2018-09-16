@@ -4,9 +4,9 @@ const View = require("./view");
 
 const viewBindingPattern = "<VIEWS_BINDING>";
 const template = `
-class Holder : KotlinEpoxyHolder() {
-  ${viewBindingPattern}
-}
+  class Holder : KotlinEpoxyHolder() {
+${viewBindingPattern}
+  }
 `;
 
 class Holder {
@@ -16,7 +16,7 @@ class Holder {
 
   brew() {
     const viewsBinding = this.views
-      .map(view => `val ${view.id} by bind<${view.tag}>(R.id.${view.id})`)
+      .map(view => `    val ${view.id} by bind<${view.tag}>(R.id.${view.id})`)
       .join("\n");
     return template.replaceAll(viewBindingPattern, viewsBinding);
   }
